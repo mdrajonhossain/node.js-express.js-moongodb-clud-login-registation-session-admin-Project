@@ -17,7 +17,11 @@ router.use(session({
 }));
 
 router.get('/', (req, res) => {
-  res.render('login')
+	if(!req.session.password){
+  		res.render('login')
+	}else{
+  		res.redirect('/home')
+	}
 })
 
 
